@@ -2,8 +2,8 @@
 class Database {
 	private $host = "localhost";
 	private $db_name = "kuntosali";
-	private $username = "topi";
-	private $password = "kmfdmdfmk1178";
+	private $username = "";
+	private $password = "";
 	public $conn;
 
 	public function getConnection() {

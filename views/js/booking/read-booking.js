@@ -26,13 +26,13 @@ function showBookings() {
 					<td>` + val.booking_start_time + `</td>
 					<td>` + val.booking_end_time + `</td>
 					<td>
-						<button class='btn btn-primary m-r-10px read-one-booking-button" data-id='` + val.booking_id + `'>
+						<button class='btn btn-primary m-r-10px read-one-booking-button' data-id='` + val.booking_id + `'>
 							<span class='glyphicon glyphicon-eye-open'></span> Info
 						</button>
 						<button class='btn btn-info m-r-10px update-booking-button' data-id='` + val.booking_id + `'>
 							<span class='glyphicon glyphicon-edit'></span> Muokkaa
 						</button>
-						<button class='btn btn-danger delete-booking-button' data-icon='` + val.booking_id + `'>
+						<button class='btn btn-danger delete-booking-button' data-id='` + val.booking_id + `'>
 							<span class='glyphicon glyphicon-remove'></span> Poista
 						</button>
 					</td>

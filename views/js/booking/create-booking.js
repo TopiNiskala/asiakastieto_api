@@ -22,7 +22,7 @@ $(document).ready(function() {
 					<tr>
 						<td></td>
 						<td>
-							<button type='submit' class='btn btn-primary'>
+							<button type='submit' class='btn btn-primary pull-right'>
 								<span class='glyphicon glyphicon-plus'></span> Tee Varaus
 							</button>
 						</td>

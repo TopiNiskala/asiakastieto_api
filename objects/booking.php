@@ -21,6 +21,19 @@ class Booking {
 		return $stmt;
 	}
 
+	//READ ONE
+	function readOne() {
+		$sql = "SELECT * FROM booking WHERE booking_id=:booking_id";
+		$stmt = $this->conn->prepare($sql);
+		$stmt->bindValue(":booking_id", htmlspecialchars(strip_tags($this->booking_id)));
+		$stmt->execute();
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+		$this->booking_user = $row['booking_user'];
+		$this->booking_start_time = $row['booking_start_time'];
+		$this->booking_end_time = $row['booking_end_time'];
+		$this->booking_desc = $row['booking_desc'];
+	}
+
 	//CREATE
 	function create() {
 		$sql = "INSERT INTO booking SET booking_user=:booking_user, booking_start_time=:booking_start_time, booking_end_time=:booking_end_time, booking_desc=:booking_desc";
@@ -39,13 +52,13 @@ class Booking {
 
 	//UPDATE
 	function update() {
-		$sql = "UPDATE booking SET booking_start_time=:booking_start_time, booking_end_time=:booking_end_time booking_desc=:booking_desc WHERE booking_id=:booking_id";
+		$sql = "UPDATE booking SET booking_start_time=:booking_start_time, booking_end_time=:booking_end_time, booking_desc=:booking_desc WHERE booking_id=:booking_id";
 		$stmt = $this->conn->prepare($sql);
 
 		$stmt->bindValue(":booking_start_time", htmlspecialchars(strip_tags($this->booking_start_time)));
-                $stmt->bindValue(":booking_end_time", htmlspecialchars(strip_tags($this->booking_end_time)));
-		$stmt->bindValue(":booking_id", htmlspecialchars(strip_tags($this->booking_id)));
+		$stmt->bindValue(":booking_end_time", htmlspecialchars(strip_tags($this->booking_end_time)));
 		$stmt->bindValue(":booking_desc", htmlspecialchars(strip_tags($this->booking_desc)));
+		$stmt->bindValue(":booking_id", htmlspecialchars(strip_tags($this->booking_id)));
 
 		if ($stmt->execute()) {
 			return true;
