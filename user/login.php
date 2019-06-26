@@ -41,12 +41,12 @@ if ($email_exists && password_verify($_POST['user_password'], $user->user_passwo
 	$jwt = JWT::encode($token, $key);
 	echo json_encode(
 		array(
-			"message" => "Kirjautuminen onnistui.",
+			"message" => "Login successful.",
 			"jwt" => $jwt
 		)
 	);
 } else {
 	http_response_code(401);
-	echo json_encode(array("message" => "Kirjautuminen epäonnistui."));
+	echo json_encode(array("message" => "Login failed."));
 }
 ?>

@@ -20,18 +20,18 @@ if ($jwt) {
 		$decoded = JWT::decode($jwt, $key, array('HS256'));
 		http_response_code(200);
 		echo json_encode(array(
-			"message" => "Kirjautuminen onnistui. Tervetuloa!",
+			"message" => "Login successful.",
 			"data" => $decoded->data
 		));
 	} catch (Exception $e) {
 		http_response_code(401);
 		echo json_encode(array(
-			"message" => "Kirjautuminen epäonnistui.",
+			"message" => "Login failed.",
 			"error" => $e->getMessage()
 		));
 	}
 } else {
 	http_response_code(401);
-	echo json_encode(array("message" => "Kirjautuminen epäonnistui."));
+	echo json_encode(array("message" => "Login failed."));
 }
 ?>
